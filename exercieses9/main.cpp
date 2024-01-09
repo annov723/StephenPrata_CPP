@@ -39,6 +39,17 @@ int main( void ){
     one[1].slag = 67;
     for( int i = 0; i < 2; i++ ) cout << one[i].doss << " " << one[i].slag << endl;*/
 
+    //zad4
+    using namespace SALES;
+    Sales s1, s2;
+    double ar[4] = { 34.4, 78.6, 122.3, 7880 };
+
+    setSales( s1, ar );
+    setSales( s2 );
+
+    howSales( s1 );
+    howSales( s2 );
+
 
 
     return 0;
