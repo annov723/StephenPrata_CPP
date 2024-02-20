@@ -6,7 +6,7 @@ using namespace std;
 template <class Any>
 void Swap( Any &a, Any &b );
 
-template<class Any>
+template <class Any>
 void Swap( Any *a, Any *b, int n );
 
 int main( void ){
