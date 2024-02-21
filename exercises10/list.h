@@ -10,6 +10,7 @@ public:
 
     Node();
     Node( void *data );
+    void print( char c );
 };
 
 class List{
@@ -26,8 +27,10 @@ public:
     void add( void *data );
     bool is_empty();
     bool is_full();
-    void* get_data( int n );
+    const void* get_data( int n );
     void remove();
+
+    void print( char c );
 
     ~List();
 
