@@ -46,6 +46,8 @@ int main(){
     cout << "fixing is longer than coding: ";
     total.Show();
 
+    cout << total << endl;
+
     return 0;
 }
 

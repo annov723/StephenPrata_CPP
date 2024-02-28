@@ -1,6 +1,12 @@
 #ifndef __MYTIME0_H__
 #define __MYTIME0_H__
 
+#include<iostream>
+
+using std::ostream;
+
+
+
 class Time{
 private:
     int hours;
@@ -19,6 +25,8 @@ public:
 
     int getH() const;
     int getM() const;
+
+    friend ostream & operator<<( std::ostream & os, const Time & t );
 
 };
 

@@ -62,3 +62,8 @@ int Time::getH() const{
 int Time::getM() const{
     return minutes;
 }
+
+ostream & operator<<( std::ostream & os, const Time & t ){
+    os << t.getH() << " godzin i " << t.getM() << " minut.";
+    return os;
+}
