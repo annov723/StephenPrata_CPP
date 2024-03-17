@@ -24,7 +24,7 @@ Str::Str( const char *s ){
 Str::Str( const Str &s ){
     num_strings++;
     len = s.len;
-    str = new char[ len + 1];
+    str = new char[len + 1];
     std::strcpy( str, s.str );
 }
 
@@ -65,7 +65,7 @@ const char& Str::operator[]( int i ) const{
 
 
 std::ostream& operator<<( std::ostream &os, const Str &a ){
-    os << a.num_strings << ": " << a.str;
+    os << a.str;
     return os;
 }
 
@@ -89,4 +89,13 @@ bool operator>( const Str &s1, const Str &s2 ){
 
 bool operator==( const Str &s1, const Str &s2 ){
     return( std::strcmp( s1.str, s2.str ) == 0 );
+}
+
+Str operator+( const Str &s1, const Str &s2 ){
+    Str n;
+    n.len = s1.len + s2.len;
+    n.str = new char[n.len + 1];
+    std::strcpy( n.str, s1.str );
+    std::strcat( n.str, s2.str );
+    return n;
 }

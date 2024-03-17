@@ -17,6 +17,7 @@ public:
     ~Str();
 
     int lenght() const { return len; }
+    static int get_max() { return MAX; }
 
     Str& operator=( const Str &s );
     Str& operator=( const char* s );
@@ -29,6 +30,7 @@ public:
     friend bool operator<( const Str &s1, const Str &s2 );
     friend bool operator>( const Str &s1, const Str &s2 );
     friend bool operator==( const Str &s1, const Str &s2 );
+    friend Str operator+( const Str &s1, const Str &s2 );
 
 
 };
