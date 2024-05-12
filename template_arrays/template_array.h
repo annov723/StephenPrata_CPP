@@ -1,9 +1,12 @@
+#ifndef __ARRAY__
+#define __ARRAY__
+
 #include <iostream>
 #include <cstdlib>
 
 using namespace std;
 
-template<typename T, int n>
+template<typename T, int n> //jako jawny parametr może być liczba całkowita, wskaźnik lub referencja!
 class MyArr{
 private:
     T ar[n];
@@ -38,9 +41,4 @@ T MyArr<T, n>::operator[]( int i ) const{
     return ar[i];
 }
 
-
-
-int main(){
-    MyArr<double, 12> array( 5 );
-    cout << array[3] << endl;
-}
+#endif
