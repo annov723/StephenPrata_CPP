@@ -29,7 +29,7 @@ public:
         }
     }
 
-    void add( int first, int second ){
+    void add( A first, B second ){
         if( where == siz ) return;
         a[where] = first;
         b[where++] = second;
@@ -42,27 +42,28 @@ public:
 
 typedef Pair<ArrayInt, ArrayInt> PairArray;
 
-class Wine : private Pair{
+template<typename A>
+class Wine : private Pair<A, A>{
 private:
     string label;
     int years;
 
 public:
     Wine() {}
-    Wine( const char* l, int y, const int yr[], const int bot[] ) : label( l ), years( y ), data( yr, bot, y ) {}
-    Wine( const char* l, int y ) : label( l ), years( y ), data( y ){
+    Wine( const char* l, int y, const int yr[], const int bot[] ) : label( l ), years( y ), Pair<A,A>( yr, bot, y ) {}
+    Wine( const char* l, int y ) : label( l ), years( y ), Pair<A,A>( y ){
 
     }
 
     void GetBottles(){
         cout << "Podaj dane o winie " << label << " dla " << years << " roczników:" << endl;
-        int p1, p2;
+        A p1, p2;
         for( int i = 0; i < years; i++ ){
             cout << "Podaj rocznik: ";
             cin >> p1;
             cout << "podaj liczbę butelek: ";
             cin >> p2;
-            data.add( p1, p2 );
+            this->add( p1, p2 );
         }
     }
 
@@ -70,14 +71,14 @@ public:
         return label;
     }
 
-    int sum(){
-        return data.getB().sum();
+    A sum(){
+        return this->getB().sum();
     }
 
     void Show(){
         cout << "Wino: " << label << endl;
         for( int i = 0; i < years; i++ ){
-            cout << setw(10) << " " << setw(10) << ( data.getA() )[i] << setw(10) << ( data.getB() )[i] << endl;
+            cout << setw(10) << " " << setw(10) << ( this->getA() )[i] << setw(10) << ( this->getB() )[i] << endl;
         }
     }
 
@@ -91,7 +92,7 @@ int main(){
     int yrs;
     cin >> yrs;
 
-    Wine comx( lab, yrs );
+    Wine<int> comx( lab, yrs );
     comx.GetBottles();
     comx.Show();
 
@@ -106,7 +107,7 @@ int main(){
     int y[YRS] = { 1993, 1995, 1998 };
     int b[YRS] = { 48, 60, 72 };
 
-    Wine comxps( "Boba Poba Lupp", YRS, y, b );
+    Wine<int> comxps( "Boba Poba Lupp", YRS, y, b );
     comxps.Show();
     cout << "Liczba butelek " << comxps.Label() << ": " << comxps.sum() << endl;
     
